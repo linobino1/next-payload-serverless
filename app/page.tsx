@@ -1,7 +1,23 @@
 import Image from 'next/image'
 import styles from './page.module.css'
+import getPayloadClient from '../payload/payloadClient';
 
-export default function Home() {
+
+
+export default async function Home() {
+  
+  let users: any[] = [];
+  try {
+    const payload = await getPayloadClient();
+    users = (await payload.find({
+      collection: 'users',
+    })).docs;
+  } catch (error) {
+    console.log('payload setup error');
+    console.log(error);
+  }
+
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -29,14 +45,14 @@ export default function Home() {
       </div>
 
       <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+        <p>
+          <a href='/admin'>Admin Panel</a>
+        </p>
+        { users.map((user) => (
+          <p key={user._id}>
+            {user.email}
+          </p>
+        ))}
       </div>
 
       <div className={styles.grid}>
