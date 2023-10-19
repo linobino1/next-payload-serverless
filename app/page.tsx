@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import getPayloadClient from '../payload/payloadClient';
 
-
+export const revalidate = 10 //  👈🏽 revalidate every 10s
 
 export default async function Home() {
   
