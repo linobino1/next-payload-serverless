@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import getPayloadClient from '../payload/payloadClient';
+import { User } from '../payload-types';
 
 export const revalidate = 10 //  👈🏽 revalidate every 10s
 
 export default async function Home() {
   
-  let users: any[] = [];
+  let users: User[] = [];
   try {
     const payload = await getPayloadClient();
     users = (await payload.find({
@@ -49,7 +50,7 @@ export default async function Home() {
           <a href='/admin'>Admin Panel</a>
         </p>
         { users.map((user) => (
-          <p key={user._id}>
+          <p key={user.id}>
             {user.email}
           </p>
         ))}
