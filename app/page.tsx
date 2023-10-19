@@ -49,11 +49,15 @@ export default async function Home() {
         <p>
           <a href='/admin'>Admin Panel</a>
         </p>
-        { users.map((user) => (
-          <p key={user.id}>
-            {user.email}
-          </p>
-        ))}
+        <br />
+        <p>
+          Users:
+          { users.map((user) => (
+            <p key={user.id}>
+              {user.email}
+            </p>
+          ))}
+        </p>
       </div>
 
       <div className={styles.grid}>
