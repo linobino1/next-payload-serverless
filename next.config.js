@@ -1,10 +1,21 @@
 /** @type {import('next').NextConfig} */
 const path = require("path");
 const { withPayload } = require("@payloadcms/next-payload");
+const { URL } = require('url');
+
+let s3 = new URL(process.env.NEXT_PUBLIC_S3_BUCKET_URL);
 
 module.exports = withPayload(
   {
     // your Next config here
+    images: {
+      remotePatterns: [
+        {
+          protocol: s3.protocol.slice(0, -1),
+          hostname: s3.host,
+        },
+      ],
+    },
   },
   {
     // The second argument to `withPayload`

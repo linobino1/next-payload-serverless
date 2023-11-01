@@ -1,0 +1,20 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  padding-inline: 3vw;
+  text-align: center;
+  align-items: center;
+}
+.title {
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+.email {
+  font-weight: normal;
+}
+.address {
+  display: inline-flex;
+  gap: 1rem;
+}

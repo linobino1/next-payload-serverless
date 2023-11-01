@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.logo {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: normal;
+  text-shadow: 10px 10px 3px rgba(0, 0, 0, 0.2);
+}
+.symbol {
+
+}
+
+.references {
+  min-height: 100vh;
+  background: #b8b4b4;
+}
